@@ -1,10 +1,28 @@
 // Play Controls Component
+import { useState } from "react";
 
 export default function PlayControls() {
+  const [speed, setSpeed] = useState("1x");
+
+  const handleSpeed = (currentSpeed: string) => {
+    switch (currentSpeed) {
+      case "1x":
+        setSpeed("2x");
+        break;
+      case "2x":
+        setSpeed("3x");
+        break;
+      case "3x":
+        setSpeed("1x");
+        break;
+    }
+    return undefined;
+  }
+
   return (
     <div className="mb-4 flex flex-row items-center justify-between">
-      <button className="inline-flex h-10 w-10 items-center justify-center whitespace-nowrap text-lg font-medium text-gold">
-        1x
+      <button className="inline-flex h-10 w-10 items-center justify-center whitespace-nowrap text-lg font-medium text-gold" onClick={() => handleSpeed(speed)}>
+        {speed}
       </button>
       <button className="inline-flex h-10 w-10 items-center justify-center text-sm font-medium">
         <svg

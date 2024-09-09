@@ -16,46 +16,55 @@ export default function Playlist() {
           title="Tidal Drift"
           artist="Echoes of the Sea"
           songLength="8:02"
+          backgroundColor=""
         />
         <PlayListItem
           title="Fading Shadows"
           artist="The Emberlight"
           songLength="3:01"
+          backgroundColor=""
         />
         <PlayListItem
           title="Cosmic Drift"
           artist="Solar Flare"
           songLength="5:01"
+          backgroundColor=""
         />
         <PlayListItem
           title="Urban Serenade"
           artist="Midnight Groove"
           songLength="4:54"
+          backgroundColor=""
         />
         <PlayListItem
           title="Whispers in the Wind"
           artist="Rust & Ruin"
           songLength="6:13"
+          backgroundColor=""
         />
         <PlayListItem
           title="Electric Fever"
           artist="Neon Jungle"
           songLength="8:41"
+          backgroundColor=""
         />
         <PlayListItem
           title="Edge of the Abyss"
           artist="Steel Horizon"
           songLength="2:27"
+          backgroundColor=""
         />
         <PlayListItem
           title="Golden Haze"
           artist="Velvet Waves"
           songLength="3:15"
+          backgroundColor=""
         />
         <PlayListItem
           title="Shatter the Silence"
           artist="Thunderclap Echo"
           songLength="8:22"
+          backgroundColor=""
         />
       </div>
     </div>

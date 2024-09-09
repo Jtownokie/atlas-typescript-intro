@@ -21,7 +21,7 @@ export default function VolumeControls() {
         type="range"
         min="1"
         max="100"
-        value="75"
+        defaultValue="75"
         className="ml-2 w-full accent-cyan"
       />
     </div>
