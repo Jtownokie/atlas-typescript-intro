@@ -2,9 +2,9 @@
 import PlayListItem from "./PlayListItem";
 import { AppContext } from "../MusicPlayer";
 import { useContext } from "react";
-import { ContextType } from "../MusicPlayer";
+import { useSongSelect } from "../hooks/useSongSelect";
 
-type SongObject = {
+export type SongObject = {
   id: Number,
   title: string,
   artist: string,
@@ -15,24 +15,31 @@ type SongObject = {
 
 export default function Playlist() {
   const context = useContext(AppContext);
+  const { selectedSong, handleSongChange } = useSongSelect();
 
   // Check if context is null
   if (!context) {
-    return <div>Loading...</div>; // or handle this case appropriately
+    return;
   }
 
-  const { data, loading } = context;
+  const { data } = context;
+
+  if (!data) {
+    return;
+  }
 
   return (
     <div className="flex w-1/2 flex-col border-t p-6 sm:w-full md:border-l md:border-t-0">
       <h2 className="mb-4 text-lg font-semibold text-gold">Playlist</h2>
       <div className="flex flex-col pr-4">
-        {data.map((song: SongObject) => (
+        {data.map((song: SongObject, index) => (
           <PlayListItem
+            key={index}
             title={song.title}
             artist={song.artist}
             songLength={song.duration}
-            backgroundColor=""
+            backgroundColor={selectedSong === index ? "bg-light-burgundy" : ""}
+            onClick={() => handleSongChange(index)}
           />
         ))}
       </div>

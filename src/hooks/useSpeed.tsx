@@ -1,6 +1,6 @@
 import { useState } from 'react';
 
-export function useSpeed(currentSpeed: string = "1x"): [string, (string: string) => string] {
+export function useSpeed(): [string, (string: string) => string] {
   const [speed, setSpeed] = useState("1x");
 
   const handleSpeed = (currentSpeed: string) => {
