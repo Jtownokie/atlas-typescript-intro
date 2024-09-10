@@ -1,9 +1,9 @@
 import { useState } from 'react';
 
 export function useSongSelect() {
-  const [currentSong, setCurrentSong] = useState<Number | undefined>(0);
+  const [currentSong, setCurrentSong] = useState<number | undefined>(0);
 
-  const handleSongSelect = (id: Number) => {
+  const handleSongSelect = (id: number) => {
     setCurrentSong(id);
   };
 

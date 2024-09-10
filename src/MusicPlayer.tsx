@@ -8,12 +8,16 @@ import { PuffLoader } from "react-spinners";
 import { useSongSelect } from "./hooks/useSongSelect";
 
 export type AppContextType = {
-  data: [SongObject] | undefined,
-  currentSong: Number | undefined,
-  handleSongSelect: (id: Number) => void | undefined
-}
+  data: [SongObject] | undefined;
+  currentSong: number | undefined;
+  handleSongSelect: (id: number) => void | undefined;
+};
 
-export const AppContext = createContext<AppContextType>({data: undefined, currentSong: undefined, handleSongSelect: () => {}});
+export const AppContext = createContext<AppContextType>({
+  data: undefined,
+  currentSong: undefined,
+  handleSongSelect: () => {},
+});
 
 export function MusicPlayer() {
   const { data, loading } = usePlaylistData();
@@ -22,10 +26,7 @@ export function MusicPlayer() {
   if (loading) {
     return (
       <div className="m-auto">
-        <PuffLoader
-          color="#fddc5c"
-          size={250}
-        />
+        <PuffLoader color="#fddc5c" size={250} />
       </div>
     );
   }

@@ -4,7 +4,7 @@ import { AppContext } from "../MusicPlayer";
 import { useContext } from "react";
 
 export type SongObject = {
-  id: Number,
+  id: number,
   title: string,
   artist: string,
   genre: string,
@@ -13,17 +13,9 @@ export type SongObject = {
 }
 
 export default function Playlist() {
-  const context = useContext(AppContext);
-  const { currentSong, handleSongSelect } = useContext(AppContext);
+  const { data, currentSong, handleSongSelect } = useContext(AppContext);
 
-  // Check if context is null
-  if (!context) {
-    return;
-  }
-
-  const { data } = context;
-
-  if (!data) {
+  if (!data || currentSong === undefined) {
     return;
   }
 
