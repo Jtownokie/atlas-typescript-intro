@@ -2,7 +2,6 @@
 import PlayListItem from "./PlayListItem";
 import { AppContext } from "../MusicPlayer";
 import { useContext } from "react";
-import { useSongSelect } from "../hooks/useSongSelect";
 
 export type SongObject = {
   id: Number,
@@ -15,7 +14,7 @@ export type SongObject = {
 
 export default function Playlist() {
   const context = useContext(AppContext);
-  const { selectedSong, handleSongChange } = useSongSelect();
+  const { currentSong, handleSongSelect } = useContext(AppContext);
 
   // Check if context is null
   if (!context) {
@@ -38,8 +37,8 @@ export default function Playlist() {
             title={song.title}
             artist={song.artist}
             songLength={song.duration}
-            backgroundColor={selectedSong === index ? "bg-light-burgundy" : ""}
-            onClick={() => handleSongChange(index)}
+            backgroundColor={currentSong === index ? "bg-light-burgundy" : ""}
+            onClick={() => handleSongSelect(index)}
           />
         ))}
       </div>

@@ -1,11 +1,11 @@
 import { useState } from 'react';
 
 export function useSongSelect() {
-  const [selectedSong, setSelectedSong] = useState<Number | undefined>(undefined);
+  const [currentSong, setCurrentSong] = useState<Number | undefined>(0);
 
-  const handleSongChange = (id: Number) => {
-    setSelectedSong(id);
+  const handleSongSelect = (id: Number) => {
+    setCurrentSong(id);
   };
 
-  return { selectedSong, handleSongChange };
+  return { currentSong, handleSongSelect };
 }
