@@ -1,4 +1,4 @@
-import { useToggle } from "../custom-hooks/useToggle";
+import { useToggle } from "../hooks/useToggle";
 
 export function PlayButton() {
   const [isToggled, toggle] = useToggle(false);

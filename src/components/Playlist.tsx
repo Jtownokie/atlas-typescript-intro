@@ -1,71 +1,40 @@
 // Playlist Component
 import PlayListItem from "./PlayListItem";
+import { AppContext } from "../MusicPlayer";
+import { useContext } from "react";
+import { ContextType } from "../MusicPlayer";
+
+type SongObject = {
+  id: Number,
+  title: string,
+  artist: string,
+  genre: string,
+  duration: string,
+  cover: string
+}
 
 export default function Playlist() {
+  const context = useContext(AppContext);
+
+  // Check if context is null
+  if (!context) {
+    return <div>Loading...</div>; // or handle this case appropriately
+  }
+
+  const { data, loading } = context;
+
   return (
     <div className="flex w-1/2 flex-col border-t p-6 sm:w-full md:border-l md:border-t-0">
       <h2 className="mb-4 text-lg font-semibold text-gold">Playlist</h2>
       <div className="flex flex-col pr-4">
-        <PlayListItem
-          title="Painted in Blue"
-          artist="Soul Canvas"
-          songLength="5:55"
-          backgroundColor="bg-light-burgundy"
-        />
-        <PlayListItem
-          title="Tidal Drift"
-          artist="Echoes of the Sea"
-          songLength="8:02"
-          backgroundColor=""
-        />
-        <PlayListItem
-          title="Fading Shadows"
-          artist="The Emberlight"
-          songLength="3:01"
-          backgroundColor=""
-        />
-        <PlayListItem
-          title="Cosmic Drift"
-          artist="Solar Flare"
-          songLength="5:01"
-          backgroundColor=""
-        />
-        <PlayListItem
-          title="Urban Serenade"
-          artist="Midnight Groove"
-          songLength="4:54"
-          backgroundColor=""
-        />
-        <PlayListItem
-          title="Whispers in the Wind"
-          artist="Rust & Ruin"
-          songLength="6:13"
-          backgroundColor=""
-        />
-        <PlayListItem
-          title="Electric Fever"
-          artist="Neon Jungle"
-          songLength="8:41"
-          backgroundColor=""
-        />
-        <PlayListItem
-          title="Edge of the Abyss"
-          artist="Steel Horizon"
-          songLength="2:27"
-          backgroundColor=""
-        />
-        <PlayListItem
-          title="Golden Haze"
-          artist="Velvet Waves"
-          songLength="3:15"
-          backgroundColor=""
-        />
-        <PlayListItem
-          title="Shatter the Silence"
-          artist="Thunderclap Echo"
-          songLength="8:22"
-          backgroundColor=""
-        />
+        {data.map((song: SongObject) => (
+          <PlayListItem
+            title={song.title}
+            artist={song.artist}
+            songLength={song.duration}
+            backgroundColor=""
+          />
+        ))}
       </div>
     </div>
   );

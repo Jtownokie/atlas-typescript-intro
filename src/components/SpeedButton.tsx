@@ -1,4 +1,4 @@
-import { useSpeed } from "../custom-hooks/useSpeed";
+import { useSpeed } from "../hooks/useSpeed";
 
 export function SpeedButton() {
   const [speed, setSpeed] = useSpeed("1x");
