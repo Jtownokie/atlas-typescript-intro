@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState } from "react";
 
 export function useSpeed(): [string, (string: string) => string] {
   const [speed, setSpeed] = useState("1x");
@@ -16,7 +16,7 @@ export function useSpeed(): [string, (string: string) => string] {
         break;
     }
     return speed;
-  }
+  };
 
-  return [speed, handleSpeed]
+  return [speed, handleSpeed];
 }

@@ -21,7 +21,7 @@ export const AppContext = createContext<AppContextType>({
   currentSong: undefined,
   handleSongSelect: () => {},
   shuffle: false,
-  handleShuffleToggle: () => {}
+  handleShuffleToggle: () => {},
 });
 
 export function MusicPlayer() {
@@ -38,7 +38,15 @@ export function MusicPlayer() {
   }
 
   return (
-    <AppContext.Provider value={{ data, currentSong, handleSongSelect, shuffle, handleShuffleToggle }}>
+    <AppContext.Provider
+      value={{
+        data,
+        currentSong,
+        handleSongSelect,
+        shuffle,
+        handleShuffleToggle,
+      }}
+    >
       <div className="mx-auto flex h-full w-full max-w-4xl flex-col rounded-lg bg-burgundy shadow-xl md:flex-row">
         <CurrentlyPlaying />
         <Playlist />

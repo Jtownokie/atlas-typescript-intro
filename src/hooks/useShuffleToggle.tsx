@@ -1,6 +1,6 @@
-import { useState } from 'react';
+import { useState } from "react";
 
-export function useShuffleToggle(){
+export function useShuffleToggle() {
   const [shuffle, toggleShuffle] = useState<boolean>(false);
 
   const handleShuffleToggle = () => {

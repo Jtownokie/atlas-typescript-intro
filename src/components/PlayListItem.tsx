@@ -1,17 +1,23 @@
 // Playlist Item Component
 
 type PlayListItemProps = {
-  title: string,
-  artist: string,
-  backgroundColor: string,
-  songLength: string,
-  onClick: () => void
+  title: string;
+  artist: string;
+  backgroundColor: string;
+  songLength: string;
+  onClick: () => void;
 };
 
-export default function PlayListItem({ title, artist, songLength, backgroundColor, onClick}: PlayListItemProps) {
+export default function PlayListItem({
+  title,
+  artist,
+  songLength,
+  backgroundColor,
+  onClick,
+}: PlayListItemProps) {
   return (
     <div
-      className={`mb-1 flex flex-row items-center justify-between rounded-md cursor-pointer ${backgroundColor ? backgroundColor : ""}`}
+      className={`mb-1 flex cursor-pointer flex-row items-center justify-between rounded-md ${backgroundColor ? backgroundColor : ""}`}
       onClick={onClick}
     >
       <div className="flex flex-col">

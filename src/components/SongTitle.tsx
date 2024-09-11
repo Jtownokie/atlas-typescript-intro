@@ -14,7 +14,9 @@ export default function SongTitle() {
 
   return (
     <div>
-      <h2 className="mb-2 text-2xl font-bold text-gold">{currentSongObject.title}</h2>
+      <h2 className="mb-2 text-2xl font-bold text-gold">
+        {currentSongObject.title}
+      </h2>
       <p className="mb-4 text-base text-cyan">{currentSongObject.artist}</p>
     </div>
   );

@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react"; 
+import { useEffect, useState } from "react";
 
 export function usePlaylistData() {
   const [data, setData] = useState(undefined);
@@ -6,7 +6,9 @@ export function usePlaylistData() {
 
   useEffect(() => {
     setLoading(true);
-    fetch("https://raw.githubusercontent.com/atlas-jswank/atlas-music-player-api/main/playlist")
+    fetch(
+      "https://raw.githubusercontent.com/atlas-jswank/atlas-music-player-api/main/playlist",
+    )
       .then((response) => {
         return response.json();
       })
@@ -16,7 +18,7 @@ export function usePlaylistData() {
       })
       .catch((error) => {
         console.log(error);
-      })
+      });
   }, []);
 
   return { data, loading };
